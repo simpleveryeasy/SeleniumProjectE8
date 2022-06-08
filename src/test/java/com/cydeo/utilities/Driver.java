@@ -84,4 +84,11 @@ public class Driver {
 
     //driver.quit() --> nosuchsession
     //driver.close() --> sessionidnotmathcing
+    //This method make sure our driver value is always null after using quit() method
+    public static void closeDriver(){
+        if (driver != null){
+            driver.quit();//this line terminates the current session, value will not be even null
+            driver = null;
+        }
+    }
 }
