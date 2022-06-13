@@ -3,6 +3,9 @@ package com.cydeo.utilities;
    //In this class only general utility methods that are not related to some specific page.
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.util.Set;
@@ -38,8 +41,14 @@ public class BrowserUtils {
 
     //This method accepts String expectedTitle and Asserts if it is true
     public static void verifyTitle(WebDriver driver, String expectedTitle){
-
         Assert.assertEquals(driver.getTitle(), expectedTitle);
+    }
+
+
+    //method for explicit wait to wait a web element invisibility
+    public static void waitForInvisibilityOf(WebElement webElement){
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.invisibilityOf(webElement));
     }
 
 
